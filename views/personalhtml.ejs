@@ -1,0 +1,104 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+    <div class="jumbotron">
+        <h1>) Platters (</h1>
+        <p> Each item with its rating, picture, and description</p>
+            <div class="container">
+
+              <div class="row">
+                <div class="col-sm">
+                  <h6>Spaghetti<h6/>
+                </div>
+                <div class="col-sm">
+                  <br> <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/homemade-spaghetti-sauce-horizontal-1530890913.jpg?crop=1xw:1xh;center,top&resize=768:*" style= "width:300px;height:200px;"> <br> <br>
+                </div>
+                <div class="col-sm">
+                  <h2>*****</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm">
+                  <h6>Pizza<h6/>
+                </div>
+                <div class="col-sm">
+                    <img src="https://img1.cookinglight.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2017/03/main/bahn-mi-pizza-1705p73.jpg?itok=jtc4rwz_" style="width:300px;height:200px;">
+                </div>
+                <div class="col-sm">
+                <h2>****</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm">
+                  <h6>Tacos</h6>
+                </div>
+                <div class="col-sm">
+              <br>  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeb-M7fObs6TyWJ2SwwlnmAptSVI4m8WEkfxl1qD-BniZY-rTq"style="width:300px;height:200px;"">
+                <br> </br>
+                </div>
+                <div class="col-sm">
+                  <h2>*****</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm">
+                <h6>Rice</h6>
+
+                </div>
+                <div class="col-sm">
+                  <br> <img src = "https://yupitsvegan.com/wp-content/uploads/2019/01/instant-pot-mexican-rice-vegan-vegetarian-square.jpg"style="width:300px;height:210px;">
+                </div>
+                <div class="col-sm">
+                  <h2>*** </h2>
+                </div>
+              </div>
+              <div>
+              <br><h4>Add a new rating<h4/>
+              </div>
+              <form>
+
+                <div class="form-group">
+                  <br><label for="exampleFormControlSelect1">Choose which platter from the menu to rate</label><br>
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Pizza</option>
+                    <option>Tacos</option>
+                    <option>Spaghetti</option>
+                    <option>Chicken</option>
+                    <option>Rice</option>
+                  </select>
+                </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Rating</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Review</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <script src="/prototype.js"> </script>
+  <script>
+    function handleSubmit(data){
+      console.log(document.getElementById("exampleFormControlTextarea1").value, "HERE");
+      new Ajax.Request(
+        '/resultspage',
+        {
+          method : 'post',
+          parameters : {
+            text : document.getElementById("exampleFormControlTextarea1").value
+          },
+          onSuccess : () => {}
+        }
+      )
+    }
+  </script>
+  <a onclick="handleSubmit()" class="btn btn-info" role="button" >Submit</a>
+</form>
+            </div>
+    </div>
+
+<%- include('bootfooter') -%>
